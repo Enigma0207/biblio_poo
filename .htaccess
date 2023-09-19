@@ -1,0 +1,4 @@
+# activer la regle de reecriture d'url
+RewriteEngine On
+# rediriger vers le dossier views  ^(.*)$ cad il capture tout ce qui est saisi dans url. views/$1, redirige tout vers dossier views
+RewriteRule ^(.*)$ views/$1 [L]

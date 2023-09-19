@@ -1,0 +1,15 @@
+# ARCHITECTURE MVC
+# activer la regle de reecriture d'url
+RewriteEngine On
+# rediriger vers le fichier sans l'extention
+#  (condition de fichier) qui vérifie si un fichier avec l'extension .php existe sur le serveur pour la requête demandée. Si c'est le cas, la condition est remplie.
+RewriteCond %{REQUEST_FILENAME}.php -f
+# $1 stock le nom du ficher et ajoute .php quand on tap dans le navigateur sans .php
+RewriteRule ^([^/]+)/?$ $1.php [L]
+# on verifie si la requete correspond a un repertoire
+RewriteCond %{REQUEST_FILENAME} !-d
+# on verifie si la requete correspond a un fichier
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# rediriger vers le fichier index
+RewriteRule ^(.*)$ index.php?q=$1 [L]
